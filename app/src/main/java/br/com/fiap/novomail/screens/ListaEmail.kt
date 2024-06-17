@@ -1,4 +1,4 @@
-package br.com.fiap.novoMail.screens
+package br.com.fiap.novomail.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -44,7 +44,7 @@ fun Lista(navController: NavHostController, emailPreferences: EmailFavorito) {
     val emails = remember {
         mutableStateListOf(
             Email(1, "Thiago", LocalDate.of(2024, 6, 10), "Reunião mês que vem", "Olá, teremos reunião dia 05.07.2024"),
-            Email(2, "Amazon", LocalDate.of(2024, 6, 9), "Promoção", "A liquidação vai até o dia 23.08.2024."),
+            Email(2, "Amazon", LocalDate.of(2024, 6, 9), "A promoção está acabando", "A liquidação vai até o dia 23.08.2024."),
             Email(3, "Rafael", LocalDate.of(2024, 6, 7), "Casamento", "Oi primo, vou casar dia 25.07.2024."),
         )
     }
@@ -162,23 +162,26 @@ fun Lista(navController: NavHostController, emailPreferences: EmailFavorito) {
                 modifier = Modifier.fillMaxWidth()
             ) {
                 IconButton(
-                    onClick = { navController.navigate("listaEmail") },
+                    onClick = { navController.navigate("login") },
                     modifier = Modifier.clickable { }
                 ) {
                     Icon(Icons.Filled.Home, contentDescription = "Home", tint = Color.White)
                 }
                 IconButton(
-                    onClick = { /* Navegar para tela de E-mails */ }
+                    onClick = { navController.navigate("listaEmail") },
+                    modifier = Modifier.clickable { }
                 ) {
                     Icon(Icons.Filled.Email, contentDescription = "E-mails", tint = Color.White)
                 }
                 IconButton(
-                    onClick = { /* Navegar para tela de Favoritos */ }
+                    onClick = { navController.navigate("listaEmail") },
+                    modifier = Modifier.clickable { }
                 ) {
                     Icon(Icons.Filled.Favorite, contentDescription = "Favoritos", tint = Color.White)
                 }
                 IconButton(
-                    onClick = { /* Navegar para tela de Configurações */ }
+                    onClick = { navController.navigate("listaEmail") },
+                    modifier = Modifier.clickable { }
                 ) {
                     Icon(Icons.Filled.Settings, contentDescription = "Configurações", tint = Color.White)
                 }

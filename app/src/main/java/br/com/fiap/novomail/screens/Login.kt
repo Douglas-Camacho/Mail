@@ -25,15 +25,11 @@ import androidx.navigation.NavHostController
 import br.com.fiap.novomail.GerenciadorDataBaseMail
 import br.com.fiap.novomail.R
 
+
 @Composable
 fun Login(navController: NavHostController, context: Context) {
-
-    var username by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-    var error by remember { mutableStateOf("") }
-    val db = GerenciadorDataBaseMail(context)
-    val scope = rememberCoroutineScope()
-
+    var email by remember { mutableStateOf("") }
+    var senha by remember { mutableStateOf("") }
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
     ) {
@@ -44,8 +40,9 @@ fun Login(navController: NavHostController, context: Context) {
                 .align(Alignment.End),
             colors = CardDefaults.cardColors(containerColor = Color(color = 0xFF13CB26)),
             shape = RoundedCornerShape(bottomStart = 16.dp)
-        ) {}
+        ) {
 
+        }
         //Foto de Perfil da tela
         Card(
             modifier = Modifier
@@ -60,7 +57,6 @@ fun Login(navController: NavHostController, context: Context) {
                 contentScale = ContentScale.Crop
             )
         }
-
         Column(
             modifier = Modifier.padding(start = 32.dp)
         ) {
@@ -76,15 +72,14 @@ fun Login(navController: NavHostController, context: Context) {
                 color = Color(0xffA09C9C)
             )
         }
-
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 32.dp)
         ) {
             OutlinedTextField(
-                value = username,
-                onValueChange = { username = it },
+                value = email,
+                onValueChange = { newValue -> email = newValue },
                 modifier = Modifier.fillMaxWidth(),
                 leadingIcon = {
                     Icon(
@@ -93,13 +88,16 @@ fun Login(navController: NavHostController, context: Context) {
                         tint = Color(0xff13CB26)
                     )
                 },
-                label = { Text(text = "E-mail") },
-                placeholder = { Text(text = "seuemail@email.com.br") }
+                label = {
+                    Text(text = "E-mail")
+                },
+                placeholder = {
+                    Text(text = "seuemail@email.com.br")
+                }
             )
-
             OutlinedTextField(
-                value = password,
-                onValueChange = { password = it },
+                value = senha,
+                onValueChange = {newValue -> senha = newValue},
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 8.dp),
@@ -110,32 +108,19 @@ fun Login(navController: NavHostController, context: Context) {
                         tint = Color(0xff13CB26)
                     )
                 },
-                label = { Text(text = "Senha") },
-                placeholder = { Text(text = "******") },
+                label = {
+                    Text(text = "Senha")
+                },
+                placeholder = {
+                    Text(text = "******")
+                },
                 visualTransformation = PasswordVisualTransformation()
+
+
             )
-
-            if (error.isNotEmpty()) {
-                Text(
-                    text = error,
-                    color = MaterialTheme.colorScheme.error,
-                    modifier = Modifier.padding(vertical = 16.dp)
-                )
-            }
-
             Button(
                 onClick = {
-                    if (username.isNotEmpty() && password.isNotEmpty()) {
-                        val user = db.getUserByUsername(username)
-                        if (user != null && user.password == password) {
-                            error = "Login realizado com sucesso"
-                            navController.navigate("main")
-                        } else {
-                            error = "Usuário ou senha inválidos"
-                        }
-                    } else {
-                        error = "Por favor, preencha todos os campos"
-                    }
+                    navController.navigate("listaEmail")
                 },
                 modifier = Modifier
                     .padding(top = 16.dp)
@@ -155,7 +140,6 @@ fun Login(navController: NavHostController, context: Context) {
                     tint = Color(0xFFFFFFFF)
                 )
             }
-
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -163,27 +147,27 @@ fun Login(navController: NavHostController, context: Context) {
                 horizontalArrangement = Arrangement.End
             ) {
                 Text(
-                    text = "Não possui uma conta?"
+                    text = "Não possue uma conta?"
                 )
-                TextButton(onClick = {
-                    navController.navigate("register")
-                }) {
-                    Text(
-                        text = "Criar conta",
-                        color = Color(0xFF13CB26),
-                        fontWeight = FontWeight.Bold,
-                        modifier = Modifier.padding(start = 4.dp)
-                    )
-                }
+                Text(
+                    text = "Criar conta",
+                    color = Color(0xFF13CB26),
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(start = 4.dp)
+                )
             }
         }
-
         Card(
             modifier = Modifier
                 .size(width = 120.dp, height = 40.dp)
                 .align(Alignment.Start),
             colors = CardDefaults.cardColors(containerColor = Color(color = 0xFF13CB26)),
             shape = RoundedCornerShape(topEnd = 16.dp)
-        ) {}
+        ) {
+
+        }
+
     }
+
+
 }

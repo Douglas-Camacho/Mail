@@ -16,9 +16,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.Navigation
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import br.com.fiap.novoMail.screens.Lista
+
+import br.com.fiap.novomail.screens.Lista
 import br.com.fiap.novomail.screens.Login
-//import br.com.fiap.novomail.screens.Login
 import br.com.fiap.novomail.screens.DetalheEmail
 import br.com.fiap.novomail.screens.DetalheEmail2
 import br.com.fiap.novomail.screens.DetalheEmail3
@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
                     //TODO DESCREVER A ROTA DAS SCREENS
                     NavHost(
                         navController = navController,
-                        startDestination = "listaEmail" // Inicia na lista de e-mails
+                        startDestination = "login" // Inicia na lista de e-mails
                     ) {
                         composable(route = "listaEmail") {
                             Lista(navController = navController, emailPreferences = emailPreferences)

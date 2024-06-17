@@ -179,7 +179,7 @@ fun DetalheEmail2(navController: NavHostController, emailId: Int) {
                             imageVector = Icons.Filled.Home,
                             contentDescription = "Home",
                             tint = Color.White,
-                            modifier = Modifier.clickable {navController.navigate("listaEmail")}
+                            modifier = Modifier.clickable {navController.navigate("login")}
                         )
                     }
 
@@ -218,7 +218,12 @@ fun DetalheEmail2(navController: NavHostController, emailId: Int) {
             // Aqui você deve buscar e exibir os detalhes reais do e-mail com base no emailId
             Text(text = "Remetente: amazon@amazon.com")
             Text(text = "Data: 09/06/2024")
-            Text(text = "Título", fontWeight = FontWeight.Bold, fontSize = 24.sp )
+            Text(
+                text = "A promoção está acabando",
+                fontWeight = FontWeight.Bold,
+                fontSize = 28.sp,
+                modifier = Modifier.padding(vertical = 15.dp) // Adiciona espaçamento vertical entre o título e o próximo texto
+            )
             Text(text = "A liquidação vai até o dia 23.08.2024.")
         }
     }
@@ -265,7 +270,7 @@ fun DetalheEmail3(navController: NavHostController, emailId: Int) {
                             imageVector = Icons.Filled.Home,
                             contentDescription = "Home",
                             tint = Color.White,
-                            modifier = Modifier.clickable {navController.navigate("listaEmail")}
+                            modifier = Modifier.clickable {navController.navigate("login")}
                         )
                     }
 
@@ -304,7 +309,12 @@ fun DetalheEmail3(navController: NavHostController, emailId: Int) {
             // Aqui você deve buscar e exibir os detalhes reais do e-mail com base no emailId
             Text(text = "Remetente: Rafael@outlook.com")
             Text(text = "Data: 07/06/2024")
-            Text(text = "Título", fontWeight = FontWeight.Bold, fontSize = 24.sp )
+            Text(
+                text = "Casamento",
+                fontWeight = FontWeight.Bold,
+                fontSize = 28.sp,
+                modifier = Modifier.padding(vertical = 15.dp) // Adiciona espaçamento vertical entre o título e o próximo texto
+            )
             Text(text = "Oi primo, vou casar dia 09.07.2024.")
         }
     }
