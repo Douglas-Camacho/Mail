@@ -26,7 +26,7 @@ import br.com.fiap.novomail.R
 
 
 @Composable
-fun Login(navController: NavHostController, context: Context) {
+fun Login(navController: NavHostController) {
     var email by remember { mutableStateOf("") }
     var senha by remember { mutableStateOf("") }
     Column(

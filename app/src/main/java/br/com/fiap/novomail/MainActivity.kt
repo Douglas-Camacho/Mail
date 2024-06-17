@@ -60,7 +60,7 @@ class MainActivity : ComponentActivity() {
 
                         composable(route = "login") {
                             val context = LocalContext.current
-                            Login(navController = navController, context = context)
+                            Login(navController = navController)
                         }
                     }
                 }
