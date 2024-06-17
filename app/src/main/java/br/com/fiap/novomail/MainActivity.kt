@@ -9,10 +9,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-
 import br.com.fiap.novomail.screens.Lista
 import br.com.fiap.novomail.screens.Login
 import br.com.fiap.novomail.screens.DetalheEmail
