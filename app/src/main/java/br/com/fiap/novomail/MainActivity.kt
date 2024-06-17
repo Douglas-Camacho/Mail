@@ -7,13 +7,9 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.Navigation
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 
@@ -22,7 +18,6 @@ import br.com.fiap.novomail.screens.Login
 import br.com.fiap.novomail.screens.DetalheEmail
 import br.com.fiap.novomail.screens.DetalheEmail2
 import br.com.fiap.novomail.screens.DetalheEmail3
-import br.com.fiap.novomail.EmailFavorito
 import br.com.fiap.novomail.ui.theme.NovoMailTheme
 
 class MainActivity : ComponentActivity() {
@@ -59,7 +54,6 @@ class MainActivity : ComponentActivity() {
                         }
 
                         composable(route = "login") {
-                            val context = LocalContext.current
                             Login(navController = navController)
                         }
                     }
